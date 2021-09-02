@@ -45,7 +45,7 @@
 
 (defun emacs-with-nyxt-slime-repl-send-sexps (&rest s-exps)
   "Evaluate S-EXPS with Nyxt Slime session."
-  (let ((s-exps-string (s-join "" (--map (prin1-to-string it) s-exps))))
+  (let ((s-exps-string (s-join "" (-map (lambda (it) (prin1-to-string it)) s-exps))))
     (defun true (&rest args) 't)
     (if (slime-connected-p)
         (slime-repl-eval-string s-exps-string)
