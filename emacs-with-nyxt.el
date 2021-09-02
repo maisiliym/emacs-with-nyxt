@@ -145,7 +145,7 @@
   "Open URL with Nyxt and optionally define BUFFER-TITLE."
   (interactive "sURL: ")
   (emacs-with-nyxt-slime-repl-send-sexps
-   (concatenate
+   (cl-concatenate
     'list
     (list
      'buffer-load
